@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-let player, video, skipButton, adActive = false;
+let player, video, adActive = false;
 const adClasses = ['ad-showing', 'ad-interrupting'];
 const observer = new MutationObserver(handleMutation);
 
@@ -25,7 +25,7 @@ function skipAd() {
   if (adPresent(player) && video.duration > 0 && video.currentTime !== video.duration) {
     video.currentTime = video.duration;
   }
-  skipButton = player.querySelector('.ytp-ad-skip-button-modern.ytp-button')?.click();
+  player.querySelector('.ytp-ad-skip-button-modern.ytp-button')?.click();
   if (adActive) {
     setTimeout(skipAd, 100);
   }
